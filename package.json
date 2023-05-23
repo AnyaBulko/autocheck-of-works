@@ -1,0 +1,27 @@
+{
+  "name": "autocheck-of-works",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/AnyaBulko/autocheck-of-works.git",
+  "author": "Anya <anya_bulko@mail.ru>",
+  "license": "MIT",
+  "scripts": {
+    "start": "webpack-dev-server"
+  },
+  "dependencies": {
+    "vue": "^3.3.4",
+    "vue-resource": "^1.5.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.21.8",
+    "@babel/preset-env": "^7.21.5",
+    "@vue/compiler-sfc": "^3.3.4",
+    "babel-loader": "^9.1.2",
+    "css-loader": "^6.7.4",
+    "vue-loader": "^17.1.1",
+    "vue-style-loader": "^4.1.3",
+    "webpack": "^5.83.1",
+    "webpack-cli": "^5.1.1",
+    "webpack-dev-server": "^4.15.0"
+  }
+}
