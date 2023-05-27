@@ -2,17 +2,22 @@ const path = require('path');
 const {VueLoaderPlugin} = require('vue-loader')
 
 module.exports = {
+
     mode: 'development',
     devtool: 'source-map',
     // файл, с которого собирается исходный код
     entry: path.join(__dirname, 'src', 'main', 'resources', 'static', 'js', 'main.js'),
     devServer: {
+        // добавила, чтобы работали иконки!! и чтобы горячая загрузка работала
+        headers: {
+            "Access-Control-Allow-Origin": "http://localhost:9000"
+        },
         // по умолчанию скомпилированные файлы будут тут
         static: './dist',
         compress: true,
         port: 8000,
         allowedHosts: [
-            'localhost:8080'
+            'localhost:9000'
         ]
     },
     module: {
@@ -39,7 +44,7 @@ module.exports = {
                     'vue-style-loader',
                     'css-loader'
                 ]
-            }
+            },
         ]
     },
     plugins: [
