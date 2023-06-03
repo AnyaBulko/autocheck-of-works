@@ -26,6 +26,7 @@
           :key="i"
           :value="item"
           active-color="primary"
+          :href="item.href"
       >
         <template v-slot:prepend>
           <v-icon :icon="item.icon"></v-icon>
@@ -41,6 +42,7 @@
           :key="i"
           :value="item"
           active-color="primary"
+          :href="item.href"
       >
         <template v-slot:prepend>
           <v-icon :icon="item.icon"></v-icon>
@@ -74,7 +76,8 @@ export default {
       teacherItems: [
         {
           text: 'Список студентов',
-          icon:'group'
+          icon:'group',
+          href: '/students'
         }
       ],
     }
