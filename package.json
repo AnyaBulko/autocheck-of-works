@@ -13,7 +13,8 @@
     "axios": "^1.4.0",
     "vue": "^3.3.4",
     "vue-router": "4",
-    "vuetify": "3.2.5"
+    "vuetify": "3.2.5",
+    "vuex": "^4.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.21.8",
