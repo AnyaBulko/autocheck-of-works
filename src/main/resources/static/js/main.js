@@ -1,6 +1,6 @@
 import {createApp} from 'vue'
 import App from "./pages/App.vue"
-
+import store from "./store/store"
 // Vuetify
 import 'vuetify/styles'
 import {createVuetify} from 'vuetify'
@@ -13,6 +13,7 @@ import {aliases, md} from 'vuetify/iconsets/md'
 import UsersList from './components/UsersList.vue';
 import Auth from "./pages/Auth.vue";
 import Profile from "./pages/Profile.vue";
+import StudentList from "./components/StudentList.vue";
 // import ProfileEdit from "./pages/ProfileEdit.vue";
 
 import {createWebHistory, createRouter} from "vue-router"
@@ -21,14 +22,13 @@ const routes = [
     {path: '/users', component: UsersList},
     {path: '/login', component: Auth},
     {path: '/profile', component: Profile},
-    // {path: '/profile/edit', component: ProfileEdit},
+    {path: '/students', component: StudentList}
 ]
 
 const router = createRouter({
     history: createWebHistory(),
     routes,
 });
-
 
 
 const vuetify = createVuetify({
@@ -41,7 +41,6 @@ const vuetify = createVuetify({
                 colors: {
                     primary: '#3f51b5',
                     // secondary: '#fce4ec', // #FFCDD2
-
                 }
             },
         },
@@ -55,4 +54,4 @@ const vuetify = createVuetify({
     }
 })
 
-createApp(App).use(router).use(vuetify).mount('#app')
+createApp(App).use(router).use(vuetify).use(store).mount('#app')

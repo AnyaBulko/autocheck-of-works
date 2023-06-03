@@ -17,9 +17,9 @@
     </v-navigation-drawer>
 
     <v-main>
-
-      <router-view></router-view>
-
+      <v-container>
+        <router-view></router-view>
+      </v-container>
     </v-main>
   </v-app>
 
@@ -41,11 +41,11 @@ export default {
   components: {
     UsersList, NavigateList, EditUserForm
   },
-  data() {
-    return {
-      profile: profile
+  computed: {
+    profile() {
+      return this.$store.state.profile
     }
-  },
+  }
   // mounted() {
   //   console.log(`the component is now mounted.`)
   //   instance.get('/users/1').then(res => {
