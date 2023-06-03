@@ -1,8 +1,9 @@
 package anyabulko.autocheckofworks.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonView;
 import jakarta.persistence.*;
-import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -13,18 +14,23 @@ import java.util.Set;
 
 @Entity
 @Table(name = "usr")
-@EqualsAndHashCode(of={"id"})
+@EqualsAndHashCode(of = {"id"})
 public class User implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @JsonView(Views.idName.class)
     private Long id;
-    @Column(unique=true)
+    @Column(unique = true)
+    @JsonView(Views.idName.class)
     private String username;
+    @JsonIgnore
     private String password;
-
+    @JsonView(Views.idName.class)
     private String firstName;
+    @JsonView(Views.idName.class)
     private String lastName;
+    @JsonView(Views.idName.class)
     private String patronymic;
     @Column(updatable = false)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
@@ -34,6 +40,7 @@ public class User implements UserDetails {
     @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))
     @Enumerated(value = EnumType.STRING)
     private Set<Role> roles;
+
     public Long getId() {
         return id;
     }
